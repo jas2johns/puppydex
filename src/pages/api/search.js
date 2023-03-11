@@ -23,3 +23,8 @@ export default async function handler(req, res) {
       
         res.status(200).json(breedInfo);
 }
+
+//for the search return
+// response.data.slice(0,2)
+
+// make sure for the puppy card that you use the image tag to render the URL
