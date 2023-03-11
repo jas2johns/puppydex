@@ -1,14 +1,31 @@
-import axios from 'axios';
-import React from 'react';
+import BreedCard from "@/components/Card";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 // const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
 
 export default function App() {
-	React.useEffect(() => {
-		axios.get(`/api/search`).then(response => console.log(response.data))
+	// use the useState hook to initialize a value for the breeds that
+	// the cards will use
+	const [breedResults, setBreedResults] = useState([]);
+
+	useEffect(() => {
+		// search for the breeds and set the results
+		axios.get(`/api/search`).then((response) => {
+			console.log(response.data);
+			setBreedResults(response.data);
+		});
 	}, []);
 
-	return <div />;
+	return (
+		<div>
+			{/* Map through the breed search results and 
+			render a card for each one */}
+			{breedResults.map((br) => (
+				<BreedCard key={br.id} breed={br} />
+			))}
+		</div>
+	);
 }
 
 // template !!!
