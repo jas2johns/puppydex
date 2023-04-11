@@ -1,4 +1,4 @@
-import {dogs} from '../dogGroups';
+import {dogs} from '../pages/dogGroups';
 
 export default function BreedCard(props) {
 	const { breed } = props;

@@ -1,4 +1,4 @@
-export default () => {
+export function dogs() {
 	const dogs = {
 	  sporting: '#C38E70',
 	  hound: '#8A5A44',
