@@ -1,16 +1,58 @@
 import { getCardColor } from "../pages/dogGroups";
+import styles from "../styles/Card.module.css";
 
 export default function BreedCard(props) {
 	const { breed } = props;
+	const breedGroupColor = getCardColor(breed.breed_group);
 	return (
 		<div
 			style={{
-				backgroundColor: getCardColor(breed.breed_group),
+				//backgroundColor: getCardColor(breed.breed_group),
+				background: `radial-gradient(circle at 50% 0%, ${breedGroupColor} 36%, #ffffff 36%)`,
 			}}
+			className={styles.card}
 		>
-			<h1>A Breed Card</h1>
+			{breed.origin && (
+				<div className={styles.origin}>{breed.origin}</div>
+			)}
+
 			<img src={breed.imageUrl} width={200} />
-			<h3>{breed.height.imperial}</h3>
+			<div className={styles.name}>{breed.name}</div>
+			<div className={styles.breedGroup}>
+				<span
+					style={{
+						backgroundColor: breedGroupColor,
+					}}
+				>
+					{breed.breed_group}
+				</span>
+			</div>
+			<div className={styles.statsContainer}>
+				<div className={styles.stats}>
+					<div className={styles.bredFor}>
+						<h3>Bred For</h3>
+						<p>{breed.bred_for}</p>
+					</div>
+					<div className={styles.temperament}>
+						<h3>Temperament</h3>
+						<p>{breed.temperament}</p>
+					</div>
+					<div className={styles.lifeSpan}>
+						<h3>Life Span</h3>
+						<p>{breed.life_span}</p>
+					</div>
+				</div>
+				<div className={`${styles.stats} ${styles.row2}`}>
+					<div className={styles.height}>
+						<h3>Height</h3>
+						<p>{breed.height.imperial}</p>
+					</div>
+					<div className={styles.weight}>
+						<h3>Weight</h3>
+						<p>{breed.weight.imperial}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

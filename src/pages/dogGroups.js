@@ -12,7 +12,23 @@ const dogs = {
 
 export function getCardColor(dogGroup) {
 	switch (dogGroup) {
+		case "Toy":
+			return dogs.toy;
+		case "Hound":
+			return dogs.hound;
+		case "Terrier":
+			return dogs.terrier;
+		case "Working":
+			return dogs.working;
+		case "Mixed":
+			return dogs.miscellaneousServices;
 		case "Non-Sporting":
 			return dogs.noSporting;
+		case "Sporting":
+			return dogs.sporting;
+		case "Herding":
+			return dogs.herding;
+		default:
+			return dogs.foundationStockService;
 	}
 }

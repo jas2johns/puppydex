@@ -1,0 +1,87 @@
+.card {
+	position: relative;
+	width: 100%;
+	max-width: 350px;
+	padding: 30px 20px;
+	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+}
+
+.card img {
+	display: block;
+	width: 180px;
+	max-height: 200px;
+	position: relative;
+	margin: 20px auto;
+	/* TODO: ROUNDED CORNERS HERE */
+}
+
+.origin {
+	width: 80px;
+	background-color: #ffffff;
+	text-align: center;
+	padding: 8px 0;
+	border-radius: 30px;
+	margin-left: auto;
+	font-weight: 400;
+}
+
+.origin span,
+.breedGroup span {
+	font-size: 12px;
+	letter-spacing: 0.4px;
+	font-weight: 600;
+}
+
+.name {
+	text-align: center;
+	font-weight: 600;
+}
+
+.breedGroup {
+	display: flex;
+	justify-content: space-around;
+	margin: 20px 0 40px 0;
+}
+
+.breedGroup span {
+	padding: 5px 20px;
+	border-radius: 20px;
+	color: #ffffff;
+}
+
+.statsContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.stats {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.stats.row2 {
+	justify-content: space-evenly;
+}
+
+.stats p {
+	color: #404060;
+}
+
+.bredFor {
+}
+
+.temperament {
+}
+
+.lifeSpan {
+}
+
+.height {
+}
+
+.weight {
+}
