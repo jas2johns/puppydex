@@ -2,6 +2,7 @@
 
 import axios from "axios";
 
+
 const baseUrl = "https://api.thedogapi.com/";
 export default async function handler(req, res) {
 	// read the query from the request

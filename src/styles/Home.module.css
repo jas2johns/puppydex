@@ -17,11 +17,21 @@
 	justify-content: end;
 }
 
+.searchFormWrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	overflow: hidden;
+}
+
 .header .search {
 	align-self: end;
 	/* margin-bottom: 1rem; */
 }
-
+.invisible{
+	display: none;
+}
 .header .search input {
 	/* background-color: white; */
 }
@@ -276,9 +286,12 @@
 }
 
 /* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
+@media (min-width: 701px) {
 	.grid {
 		grid-template-columns: repeat(2, 50%);
+	}
+	.header {
+		min-height: 22rem;
 	}
 }
 
