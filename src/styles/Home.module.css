@@ -297,7 +297,17 @@
 	.header {
 		min-height: 22rem;
 	}
+	.searchFormWrapper{
+		/* display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: nowrap;*/
+		overflow: visible; 
 	
+		position: relative;
+		right: 5vw;
+		top: 22vh;
+	}
 }
 @media (max-width: 480px) {
 	.searchFormWrapper{
