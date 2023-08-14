@@ -23,18 +23,22 @@
 	align-items: center;
 	flex-wrap: nowrap;
 	overflow: hidden;
+
+	position: relative;
+	right: 5vw;
+	top: 11vh;
 }
 
-.header .search {
+/* .header .search {
 	align-self: end;
-	/* margin-bottom: 1rem; */
-}
+	/* margin-bottom: 1rem; 
+} */
 .invisible{
 	display: none;
 }
-.header .search input {
-	/* background-color: white; */
-}
+/* .header .search input {
+	 background-color: white; 
+} */
 
 .description {
 	display: inherit;
@@ -293,8 +297,21 @@
 	.header {
 		min-height: 22rem;
 	}
+	
 }
-
+@media (max-width: 480px) {
+	.searchFormWrapper{
+		/* display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: nowrap;*/
+		overflow: visible; 
+	
+		position: relative;
+		right: 5vw;
+		top: 2vh;
+	}
+}
 @media (prefers-color-scheme: dark) {
 	.vercelLogo {
 		filter: invert(1);
