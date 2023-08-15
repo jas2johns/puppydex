@@ -12,7 +12,7 @@
 	background-size: 100%;
 	min-height: 15rem;
 	display: grid;
-	grid-template-cols: 3fr 1fr;
+	/* grid-template-columns: 3fr 1fr; */
 	grid-template-rows: 1fr;
 	justify-content: end;
 }
