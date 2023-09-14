@@ -2,6 +2,7 @@ import BreedCard from "@/components/Card";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
+import Navbar from "@/components/Navbar";
 
 
 // const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
@@ -44,6 +45,8 @@ export default function App() {
 						<BreedCard key={br.id} breed={br} />
 					))}
 			</div>
+			<Navbar></Navbar>
 		</div>
+		
 	);
 }

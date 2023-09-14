@@ -1,0 +1,9 @@
+.menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    background-color: aqua;
+}
