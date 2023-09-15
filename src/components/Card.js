@@ -1,8 +1,15 @@
 import { getCardColor } from "../pages/dogGroups";
 import styles from "../styles/Card.module.css";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { useState } from "react";
 
 export default function BreedCard(props) {
 	const { breed } = props;
+	const [isBookmarked, setIsBookmarked] = useState(true);
+	// TODO: use the above hook when you're reading from the database to display the correct icon
+	// setIsBookmarked(true) if the card has been bookmarked in the db
+
 	const breedGroupColor = getCardColor(breed.breed_group);
 	return (
 		<div
@@ -12,10 +19,15 @@ export default function BreedCard(props) {
 			}}
 			className={styles.card}
 		>
+			{isBookmarked ? (
+				<BookmarkIcon className={styles["filled-green"]} />
+			) : (
+				<BookmarkBorderIcon className={styles["filled-green"]} />
+			)}
+
 			{breed.origin && (
 				<div className={styles.origin}>{breed.origin}</div>
 			)}
-
 			<img src={breed.imageUrl} width={200} />
 			<div className={styles.name}>{breed.name}</div>
 			<div className={styles.breedGroup}>

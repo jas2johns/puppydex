@@ -1,4 +1,4 @@
-.menu {
+/* .menu {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -6,4 +6,52 @@
     position: absolute;
     bottom: 0;
     background-color: aqua;
+} */
+
+.menu {
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	left: 0px;
+	bottom: -50px;
+
+	width: 100vw;
+	padding: 20px;
+	text-align: center;
+
+	background-color: black;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+
+	font-size: 20px;
+	color: white;
+
+	border: none;
+
+	/* transition */
+
+	transition: bottom 1s;
+	-webkit-transition: bottom 1s;
+}
+
+.menu:hover {
+	bottom: 0px;
+}
+
+.menu.expanded {
+}
+
+.handle {
+	position: relative;
+	bottom: 49px;
+	background-color: black;
+	width: 25vw;
+	border: none;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.filled-green {
+	stroke: green;
+	fill: green;
+	color: green;
 }
