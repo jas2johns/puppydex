@@ -1,13 +1,12 @@
-import BreedCard from "@/components/Card";
-import axios from "axios";
+"use client";
+
 import React, { useEffect, useState } from "react";
-import styles from "../styles/Home.module.css";
-import Navbar from "@/components/Navbar";
+import BreedCard from "./components/Card";
+import axios from "axios";
+import styles from "./styles/Home.module.css";
+import Navbar from "./components/Navbar";
 
-
-// const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
-
-export default function App() {
+export default function Index() {
 	// use the useState hook to initialize a value for the breeds that
 	// the cards will use
 	const [breedResults, setBreedResults] = useState([]);
@@ -26,17 +25,21 @@ export default function App() {
 			<header className={styles["header"]}>
 				{/* will update the state */}
 				<div className={styles["searchFormWrapper"]}>
-				<form className={"search-box"}>
-					<input placeholder=" "
-						type="text"
-						onChange={(e) => setSearchTerm(e.target.value)}
-					/>
-					<button type="submit" className={styles["invisible"]} onClick={search}></button>
-					<button type="reset"></button>
-				</form>
+					<form className={"search-box"}>
+						<input
+							placeholder=" "
+							type="text"
+							onChange={(e) => setSearchTerm(e.target.value)}
+						/>
+						<button
+							type="submit"
+							className={styles["invisible"]}
+							onClick={search}
+						></button>
+						<button type="reset"></button>
+					</form>
 				</div>
 			</header>
-
 			{/* Map through the breed search results and 
 			render a card for each one */}
 			<div className={styles["results-container"]}>
@@ -47,6 +50,5 @@ export default function App() {
 			</div>
 			<Navbar></Navbar>
 		</div>
-		
 	);
 }

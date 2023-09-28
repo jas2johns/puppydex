@@ -1,4 +1,6 @@
-import { getCardColor } from "../pages/dogGroups";
+"use client";
+
+import { getCardColor } from "../dogGroups";
 import styles from "../styles/Card.module.css";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
