@@ -21,107 +21,11 @@ $slide-change-timing: 3; // percentage of total animation cycle
 }
 
 .carousel__item {
-	display: flex;
-	align-items: center;
-	//position: absolute;
-	width: 100%;
 	padding: 0 12px;
 	filter: drop-shadow(0 2px 2px #555);
-	// will-change: transform;
-	// animation: carousel-animate-horizontal-out $animation-timing linear infinite;
+	transform: scale(0.8);
 }
 
 .carousel__item--active {
-	opacity: 0;
-	will-change: transform, opacity;
-	animation: carousel-animate-horizontal-in $animation-timing linear infinite;
-}
-
-// @for $i from 1 through ($carousel-items - 1) {
-// 	.carousel__item:nth-child(#{$i}) {
-// 		animation-delay: calc(#{$animation-delay-fraction} * #{$i - 2});
-// 	}
-// }
-
-// .carousel__item:last-child {
-// 	animation-delay: calc(-#{$animation-delay-fraction} * 2);
-// }
-
-// // example without negative delays
-// @for $i from 1 through ($carousel-items) {
-// 	.carousel__item:nth-child(#{$i}) {
-// 		animation-delay: calc(#{$animation-delay-fraction} * #{$i});
-// 	}
-// }
-
-@keyframes carousel-animate-horizontal-out {
-	0% {
-		transform: translateX(100%) scale(0.5);
-		opacity: 1;
-		visibility: visible;
-	}
-	#{$slide-change-timing}%,
-	#{$animation-steps-fraction}% {
-		transform: translateX(100%) scale(0.7);
-		opacity: 0.4;
-		visibility: hidden;
-	}
-	#{$animation-steps-fraction + $slide-change-timing}%,
-	#{$animation-steps-fraction * 2}% {
-		transform: translateX(0) scale(1);
-		opacity: 1;
-		visibility: hidden;
-	}
-	#{($animation-steps-fraction * 2) + $slide-change-timing}%,
-	#{$animation-steps-fraction * 3}% {
-		transform: translateX(-100%) scale(0.7);
-		opacity: 0.4;
-		visibility: hidden;
-	}
-	#{($animation-steps-fraction * 3) + $slide-change-timing}% {
-		transform: translateX(-100%) scale(0.5);
-		opacity: 0;
-		visibility: hidden;
-	}
-	100% {
-		transform: translateX(-100%) scale(0.5);
-		opacity: 0;
-		visibility: visible;
-	}
-}
-
-@keyframes carousel-animate-horizontal-in {
-	0% {
-		transform: translateX(100%) scale(0.5);
-		opacity: 0;
-		visibility: hidden;
-	}
-	#{$slide-change-timing}%,
-	#{$animation-steps-fraction}% {
-		transform: translateX(100%) scale(0.7);
-		opacity: 0.4;
-		visibility: visible;
-	}
-	#{$animation-steps-fraction + $slide-change-timing}%,
-	#{$animation-steps-fraction * 2}% {
-		transform: translateX(0) scale(1);
-		opacity: 1;
-		visibility: visible;
-	}
-	#{($animation-steps-fraction * 2) + $slide-change-timing}%,
-	#{$animation-steps-fraction * 3}% {
-		transform: translateX(-100%) scale(0.7);
-		opacity: 0.4;
-		visibility: visible;
-	}
-	#{($animation-steps-fraction * 3) + $slide-change-timing}% {
-		transform: translateX(-100%) scale(0.5);
-		opacity: 0;
-		visibility: visible;
-	}
-	100% {
-		transform: translateX(-100%) scale(0.5);
-		opacity: 0;
-		visibility: hidden;
-	}
+	transform: scale(1);
 }
