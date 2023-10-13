@@ -2,13 +2,14 @@
 
 import axios from "axios";
 
-
 const baseUrl = "https://api.thedogapi.com/";
-export default async function handler(req, res) {
+export const GET = async function handler(req) {
 	// read the query from the request
+	const searchTerm = req.nextUrl.searchParams.get("term");
+	console.log("searchTerm", searchTerm);
 	try {
 		const response = await axios.get(
-			baseUrl + `v1/breeds/search?limit=10&page=0&q=${req.query.term}`,
+			baseUrl + `v1/breeds/search?limit=10&page=0&q=${searchTerm}`,
 			{
 				headers: {
 					"x-api-key":
@@ -18,8 +19,7 @@ export default async function handler(req, res) {
 		);
 
 		// get the first 3 breeds from the response
-		//const firstThreeBreeds = response.data.slice(0, 3);
-		const firstThreeBreeds = [response.data[0]];
+		const firstThreeBreeds = response.data.slice(0, 3);
 		console.log(firstThreeBreeds);
 
 		// create a function that takes an array of Ids and returns
@@ -48,11 +48,14 @@ export default async function handler(req, res) {
 
 		console.log(firstThreeBreeds);
 
-		res.status(200).json(firstThreeBreeds);
+		return Response.json(firstThreeBreeds);
 	} catch (err) {
-		res.status(500).end();
+		return new Response(err, {
+			status: 500,
+			statusText: err,
+		});
 	}
-}
+};
 
 //for the search return
 // response.data.slice(0,2)

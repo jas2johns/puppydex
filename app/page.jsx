@@ -5,6 +5,7 @@ import BreedCard from "./components/Card";
 import axios from "axios";
 import styles from "./styles/Home.module.css";
 import Navbar from "./components/Navbar";
+import Carousel from "./components/Carousel";
 
 export default function Index() {
 	// use the useState hook to initialize a value for the breeds that
@@ -43,10 +44,7 @@ export default function Index() {
 			{/* Map through the breed search results and 
 			render a card for each one */}
 			<div className={styles["results-container"]}>
-				{breedResults.length > 0 &&
-					breedResults.map((br) => (
-						<BreedCard key={br.id} breed={br} />
-					))}
+				<Carousel breeds={breedResults} />
 			</div>
 			<Navbar></Navbar>
 		</div>

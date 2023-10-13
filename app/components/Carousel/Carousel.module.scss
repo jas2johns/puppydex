@@ -1,0 +1,31 @@
+$animation-timing: 27s;
+$carousel-items: 9;
+$animation-delay-fraction: $animation-timing / $carousel-items;
+$animation-steps-fraction: 100 / $carousel-items;
+$slide-change-timing: 3; // percentage of total animation cycle
+
+.wrapper {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.carousel {
+	position: relative;
+	width: 100%;
+	max-width: 500px;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.carousel__item {
+	padding: 0 12px;
+	filter: drop-shadow(0 2px 2px #555);
+	transform: scale(0.8);
+}
+
+.carousel__item--active {
+	transform: scale(1);
+}
