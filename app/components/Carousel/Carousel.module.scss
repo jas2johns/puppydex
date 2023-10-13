@@ -25,7 +25,3 @@ $slide-change-timing: 3; // percentage of total animation cycle
 	filter: drop-shadow(0 2px 2px #555);
 	transform: scale(0.8);
 }
-
-.carousel__item--active {
-	transform: scale(1);
-}

@@ -5,6 +5,7 @@ import styles from "../styles/Card.module.css";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function BreedCard(props) {
 	const { breed } = props;
@@ -14,7 +15,8 @@ export default function BreedCard(props) {
 
 	const breedGroupColor = getCardColor(breed.breed_group);
 	return (
-		<div
+		<motion.div
+			//whileTap={{ scale: 1.1 }}
 			style={{
 				//backgroundColor: getCardColor(breed.breed_group),
 				background: `radial-gradient(circle at 50% 0%, ${breedGroupColor} 36%, #ffffff 36%)`,
@@ -67,6 +69,6 @@ export default function BreedCard(props) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
