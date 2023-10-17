@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import BreedCard from "../Card";
 import styles from "./Carousel.module.scss";
-import { motion, frame, useTransform, animate } from "framer-motion";
+import { motion, frame, useTransform, animate, inView } from "framer-motion";
 
 const Carousel = ({ breeds }) => {
 	const [activeItemId, setActiveItemId] = useState();
@@ -10,7 +10,8 @@ const Carousel = ({ breeds }) => {
 		animate(
 			card,
 			{
-				scale: 0.8,
+				opacity: 0,
+				display: "none",
 			},
 			{
 				duration: 0.5,
@@ -23,7 +24,8 @@ const Carousel = ({ breeds }) => {
 			[
 				card,
 				{
-					scale: 1.1,
+					width: "100vw",
+					margin: "0 auto",
 				},
 				{
 					duration: 0.5,
@@ -44,18 +46,29 @@ const Carousel = ({ breeds }) => {
 	};
 
 	useEffect(() => {
-		const allCards = document.querySelectorAll(
-			`.${styles["carousel__item"]}`
-		);
+		if (breeds) {
+			const allCards = document.querySelectorAll(
+				`.${styles["carousel__item"]}`
+			);
+			allCards.forEach((c) => {
+				inView(
+					c,
+					(info) => {
+						// TODO: set card to active
+						info.target.classList.add(styles["active"]);
 
-		allCards.forEach((c) => {
-			if (Number(c.id) === activeItemId) {
-				animateActiveCard(c);
-			} else {
-				animateInactiveCard(c);
-			}
-		});
-	}, [activeItemId]);
+						return () => {
+							info.target.classList.remove(styles["active"]);
+						};
+					},
+					{},
+					{
+						once: false,
+					}
+				);
+			});
+		}
+	}, [breeds]);
 
 	return (
 		<div className={styles["wrapper"]}>
@@ -66,7 +79,9 @@ const Carousel = ({ breeds }) => {
 						<div
 							id={br.id}
 							key={br.id}
-							className={styles["carousel__item"]}
+							className={`${
+								activeItemId === br.id ? styles["active"] : ""
+							} ${styles["carousel__item"]}`}
 							onClick={() => setActiveItemId(br.id)}
 						>
 							<BreedCard breed={br} />
