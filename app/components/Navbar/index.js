@@ -18,9 +18,9 @@ export default function Navbar() {
 						}}
 					/>
 				</div>
-				<div>
-					HI, {user.user?.email}
-					<a href="/api/auth/login">Auth0</a>
+				<div className={styles["loginLink"]}>
+					Welcome, {user.user?.email}
+					<a href="/api/auth/login">Sign in</a>
 				</div>
 			</div>
 		</>
