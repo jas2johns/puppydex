@@ -20,6 +20,15 @@ $slide-change-timing: 3; // percentage of total animation cycle
 	gap: 4rem;
 	overflow: scroll;
 	padding-left: 3em;
+
+	//added
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+//also added
+.carousel::-webkit-scrollbar {
+	display: none;
 }
 
 .carousel__item {
