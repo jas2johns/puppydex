@@ -8,7 +8,8 @@
 }
 
 .header {
-	background-image: url("/images/Pokedex_Biggify_3_1_Traced.svg");
+	/* background-image: url("/images/Pokedex_Biggify_3_1_Traced.svg"); */
+	background-image: url("/images/Pokédex_Biggify_2_Experiment.svg");
 	background-size: 100%;
 	min-height: 15rem;
 	display: grid;
