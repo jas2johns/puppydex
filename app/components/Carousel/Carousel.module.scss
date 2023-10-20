@@ -9,6 +9,7 @@ $slide-change-timing: 3; // percentage of total animation cycle
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	padding-bottom: 1rem;
 }
 
 .carousel {
@@ -20,6 +21,7 @@ $slide-change-timing: 3; // percentage of total animation cycle
 	gap: 4rem;
 	overflow: scroll;
 	padding-left: 3em;
+	padding-bottom: 3rem;
 
 	//added
 	scrollbar-width: none;
@@ -40,5 +42,12 @@ $slide-change-timing: 3; // percentage of total animation cycle
 		transition: transform 0.5s;
 		transition-timing-function: ease;
 		transform: scale(1);
+	}
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+	.carousel {
+		// height: 100vh;
 	}
 }

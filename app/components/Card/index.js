@@ -1,7 +1,7 @@
 "use client";
 
-import { getCardColor } from "../dogGroups";
-import styles from "../styles/Card.module.css";
+import { getCardColor } from "../../dogGroups";
+import styles from "./Card.module.scss";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useState } from "react";
@@ -15,10 +15,8 @@ export default function BreedCard(props) {
 
 	const breedGroupColor = getCardColor(breed.breed_group);
 	return (
-		<motion.div
-			//whileTap={{ scale: 1.1 }}
+		<div
 			style={{
-				//backgroundColor: getCardColor(breed.breed_group),
 				background: `radial-gradient(circle at 50% 0%, ${breedGroupColor} 36%, #ffffff 36%)`,
 			}}
 			className={styles.card}
@@ -40,22 +38,22 @@ export default function BreedCard(props) {
 						backgroundColor: breedGroupColor,
 					}}
 				>
-					{breed.breed_group}
+					{breed.breed_group || "unknown"}
 				</span>
 			</div>
 			<div className={styles.statsContainer}>
 				<div className={styles.stats}>
 					<div className={styles.bredFor}>
 						<h3>Bred For</h3>
-						<p>{breed.bred_for}</p>
+						<p>{breed.bred_for || "-"}</p>
 					</div>
 					<div className={styles.temperament}>
 						<h3>Temperament</h3>
-						<p>{breed.temperament}</p>
+						<p>{breed.temperament || "-"}</p>
 					</div>
 					<div className={styles.lifeSpan}>
 						<h3>Life Span</h3>
-						<p>{breed.life_span}</p>
+						<p>{breed.life_span || "-"}</p>
 					</div>
 				</div>
 				<div className={`${styles.stats} ${styles.row2}`}>
@@ -69,6 +67,6 @@ export default function BreedCard(props) {
 					</div>
 				</div>
 			</div>
-		</motion.div>
+		</div>
 	);
 }

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import BreedCard from "./components/Card";
 import axios from "axios";
-import styles from "./styles/Home.module.css";
+import styles from "./styles/Home.module.scss";
 import Navbar from "./components/Navbar";
 import Carousel from "./components/Carousel";
 
