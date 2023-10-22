@@ -20,7 +20,12 @@
 	text-align: center;
 
 	background-color: white;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+	/* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6); */
+	box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, 
+	rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+	rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+	rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+	rgba(0, 0, 0, 0.09) 0px 32px 16px;
 
 	font-size: 20px;
 	color: darkgray;
@@ -31,14 +36,21 @@
 
 	transition: bottom 1s;
 	-webkit-transition: bottom 1s;
+
+	/* shadow effect */
+	/* box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, 
+	rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+	rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+	rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+	rgba(0, 0, 0, 0.09) 0px 32px 16px; */
 }
 
 .menu:hover {
 	bottom: 0px;
+	
 }
 
-.menu.expanded {
-}
+.menu.expanded {}
 
 .handle {
 	position: relative;
@@ -49,11 +61,18 @@
 	border: none;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+
+	box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, 
+	rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+	rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+	rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+	rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .loginLink {
 	position: relative;
 	right: 6.5rem;
+	
 }
 
 .filled-green {
