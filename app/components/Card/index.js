@@ -13,6 +13,14 @@ export default function BreedCard(props) {
 	// TODO: use the above hook when you're reading from the database to display the correct icon
 	// setIsBookmarked(true) if the card has been bookmarked in the db
 
+	const addFavorite = (breed) => {
+		// TODO: call api route to store breed
+	};
+
+	const removeFavorite = (breed) => {
+		// TODO: call api route to remove  breed
+	};
+
 	const breedGroupColor = getCardColor(breed.breed_group);
 	return (
 		<div
@@ -22,9 +30,15 @@ export default function BreedCard(props) {
 			className={styles.card}
 		>
 			{isBookmarked ? (
-				<BookmarkIcon className={styles["filled-green"]} />
+				<BookmarkIcon
+					className={styles["filled-green"]}
+					onClick={() => removeFavorite(breed)}
+				/>
 			) : (
-				<BookmarkBorderIcon className={styles["filled-green"]} />
+				<BookmarkBorderIcon
+					className={styles["filled-green"]}
+					onClick={() => addFavorite(breed)}
+				/>
 			)}
 
 			{breed.origin && (
