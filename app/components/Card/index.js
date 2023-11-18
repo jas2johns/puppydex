@@ -9,16 +9,31 @@ import { motion } from "framer-motion";
 
 export default function BreedCard(props) {
 	const { breed } = props;
-	const [isBookmarked, setIsBookmarked] = useState(true);
+	const [isBookmarked, setIsBookmarked] = useState(false);
 	// TODO: use the above hook when you're reading from the database to display the correct icon
 	// setIsBookmarked(true) if the card has been bookmarked in the db
 
-	const addFavorite = (breed) => {
-		// TODO: call api route to store breed
+	const addFavorite = async (breed) => {
+		try {
+			console.log("adding favorite");
+			const response = await fetch("/api/favorites", {
+				method: "POST",
+				body: JSON.stringify({ breed }),
+			});
+		} catch (err) {
+			console.error(err);
+		}
 	};
 
-	const removeFavorite = (breed) => {
-		// TODO: call api route to remove  breed
+	const removeFavorite = async (breed) => {
+		try {
+			const response = await fetch({
+				method: "DELETE",
+				url: "/api/favorites/" + breed.id,
+			});
+		} catch (err) {
+			console.error(err);
+		}
 	};
 
 	const breedGroupColor = getCardColor(breed.breed_group);
