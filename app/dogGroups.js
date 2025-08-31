@@ -1,4 +1,4 @@
-const dogs = {
+export const dogs = {
 	sporting: "#C38E70",
 	hound: "#8A5A44",
 	working: "#B07D62",
