@@ -3,7 +3,7 @@ import BreedCard from "../Card";
 import styles from "./Carousel.module.scss";
 import { motion, frame, useTransform, animate, inView } from "framer-motion";
 
-const Carousel = ({ breeds }) => {
+const Carousel = ({ breeds, selectedCardColor }) => {
 	const [activeItemId, setActiveItemId] = useState();
 
 	const animateInactiveCard = (card) => {
@@ -84,7 +84,10 @@ const Carousel = ({ breeds }) => {
 							} ${styles["carousel__item"]}`}
 							onClick={() => setActiveItemId(br.id)}
 						>
-							<BreedCard breed={br} />
+							<BreedCard
+								breed={br}
+								selectedCardColor={selectedCardColor}
+							/>
 						</div>
 					))}
 			</div>

@@ -8,7 +8,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function BreedCard(props) {
-	const { breed } = props;
+	const { breed, selectedCardColor } = props;
 	const [isBookmarked, setIsBookmarked] = useState(false);
 	// TODO: use the above hook when you're reading from the database to display the correct icon
 	// setIsBookmarked(true) if the card has been bookmarked in the db
@@ -36,7 +36,8 @@ export default function BreedCard(props) {
 		}
 	};
 
-	const breedGroupColor = getCardColor(breed.breed_group);
+	const breedGroupColor =
+		selectedCardColor || getCardColor(breed.breed_group);
 	return (
 		<div
 			style={{

@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 const Favorites = () => {
 	const [breeds, setBreeds] = useState([]);
+	const [selectedCardColor, setSelectedCardColor] = useState("");
 
 	useEffect(() => {
 		const getUser = async () => {
@@ -29,13 +30,19 @@ const Favorites = () => {
 						breeds.length > 0 &&
 						breeds.map((br) => (
 							<div id={br.id} key={br.id} className={``}>
-								<BreedCard breed={br} />
+								<BreedCard
+									breed={br}
+									selectedCardColor={selectedCardColor}
+								/>
 							</div>
 						))}
 				</div>
 			</main>
 			<footer>
-				<Navbar></Navbar>
+				<Navbar
+					selectedCardColor={selectedCardColor}
+					onCardColorChange={setSelectedCardColor}
+				></Navbar>
 			</footer>
 		</>
 	);

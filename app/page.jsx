@@ -12,6 +12,7 @@ export default function Index() {
 	// the cards will use
 	const [breedResults, setBreedResults] = useState([]);
 	const [searchTerm, setSearchTerm] = useState();
+	const [selectedCardColor, setSelectedCardColor] = useState("");
 
 	const search = (event) => {
 		event.preventDefault();
@@ -44,9 +45,15 @@ export default function Index() {
 			{/* Map through the breed search results and 
 			render a card for each one */}
 			<div className={styles["results-container"]}>
-				<Carousel breeds={breedResults} />
+				<Carousel
+					breeds={breedResults}
+					selectedCardColor={selectedCardColor}
+				/>
 			</div>
-			<Navbar></Navbar>
+			<Navbar
+				selectedCardColor={selectedCardColor}
+				onCardColorChange={setSelectedCardColor}
+			></Navbar>
 		</div>
 	);
 }

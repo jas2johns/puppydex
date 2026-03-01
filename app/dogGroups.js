@@ -10,6 +10,12 @@ const dogs = {
 	foundationStockService: "#DEAB90",
 };
 
+export const cardColorChoices = Object.entries(dogs).map(([key, value]) => ({
+	key,
+	label: key.replace(/([A-Z])/g, " $1").replace(/^./, (char) => char.toUpperCase()),
+	value,
+}));
+
 export function getCardColor(dogGroup) {
 	switch (dogGroup) {
 		case "Toy":
