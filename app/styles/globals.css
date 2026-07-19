@@ -8,7 +8,7 @@
 	--frame-color: #000000;
 	--size: 2.5em;
 	/* changed the width of the searchbar here */
-	--open-width: 13em;
+	--open-width: min(22em, calc(100vw - 3rem));
 	--open-padding: 0.3em 2.1em 0.3em 0.4em;
 	--frame-thickness: 0.3em;
 	--handle-height: 1.4em;
@@ -63,7 +63,8 @@ a {
 }
 
 .search-box input[type="text"]:focus {
-	outline: none;
+	outline: 3px solid #ffffff;
+	outline-offset: 3px;
 }
 
 .search-box input[type="text"]:focus,
@@ -106,6 +107,19 @@ a {
 		translateY(calc(var(--size) - var(--frame-thickness)));
 	transition: transform var(--close-trans-time) ease-out
 		var(--close-trans-time);
+}
+
+.search-box button[type="reset"]:focus-visible {
+	outline: 3px solid #ffffff;
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.search-box input[type="text"],
+	.search-box button[type="reset"],
+	.search-box button[type="reset"]::after {
+		transition: none;
+	}
 }
 
 .search-box button[type="reset"]:before,

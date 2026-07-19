@@ -5,7 +5,6 @@ import styles from "./Card.module.scss";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 export default function BreedCard(props) {
 	const { breed } = props;
@@ -37,6 +36,12 @@ export default function BreedCard(props) {
 	};
 
 	const breedGroupColor = getCardColor(breed.breed_group);
+	const handleFavoriteKeyDown = (event, action) => {
+		if (event.key === "Enter" || event.key === " ") {
+			event.preventDefault();
+			action(breed);
+		}
+	};
 	return (
 		<div
 			style={{
@@ -46,21 +51,33 @@ export default function BreedCard(props) {
 		>
 			{isBookmarked ? (
 				<BookmarkIcon
+					role="button"
+					tabIndex={0}
+					aria-label={`Remove ${breed.name} from favorites`}
 					className={styles["filled-green"]}
 					onClick={() => removeFavorite(breed)}
+					onKeyDown={(event) =>
+						handleFavoriteKeyDown(event, removeFavorite)
+					}
 				/>
 			) : (
 				<BookmarkBorderIcon
+					role="button"
+					tabIndex={0}
+					aria-label={`Add ${breed.name} to favorites`}
 					className={styles["filled-green"]}
 					onClick={() => addFavorite(breed)}
+					onKeyDown={(event) =>
+						handleFavoriteKeyDown(event, addFavorite)
+					}
 				/>
 			)}
 
 			{breed.origin && (
 				<div className={styles.origin}>{breed.origin}</div>
 			)}
-			<img src={breed.imageUrl} width={200} />
-			<div className={styles.name}>{breed.name}</div>
+			<img src={breed.imageUrl} alt={`${breed.name} dog`} />
+			<h2 className={styles.name}>{breed.name}</h2>
 			<div className={styles.breedGroup}>
 				<span
 					style={{
