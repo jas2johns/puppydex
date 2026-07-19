@@ -6,9 +6,10 @@
 	min-height: 100%;
 	padding: 1.25rem;
 	border: 1px solid rgba(64, 64, 96, 0.1);
-	border-radius: 1rem;
-	box-shadow: 0 10px 28px rgba(33, 33, 50, 0.12);
+	border-radius: 0.9rem;
+	box-shadow: 0 8px 22px rgba(33, 33, 50, 0.1);
 	overflow: hidden;
+	transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
 .card > svg {
@@ -30,9 +31,10 @@
 	display: block;
 	width: 100%;
 	aspect-ratio: 4 / 3;
-	object-fit: cover;
+	object-fit: contain;
 	margin: 1rem auto 1.1rem;
-	border-radius: 0.8rem;
+	border-radius: 0.7rem;
+	background: rgba(255, 255, 255, 0.74);
 }
 
 .origin {
@@ -46,11 +48,17 @@
 	text-align: center;
 }
 
+.identity {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .name {
 	margin: 0;
 	color: #20203a;
 	font-size: 1.35rem;
-	font-weight: 700;
+	font-weight: 800;
 	line-height: 1.25;
 	text-align: center;
 }
@@ -58,7 +66,7 @@
 .breedGroup {
 	display: flex;
 	justify-content: center;
-	margin: 0.7rem 0 1.15rem;
+	margin: 0.7rem 0 0.8rem;
 }
 
 .breedGroup span {
@@ -68,6 +76,15 @@
 	font-size: 0.75rem;
 	font-weight: 600;
 	letter-spacing: 0.02em;
+}
+
+.description {
+	max-width: 62ch;
+	margin: 0 0 1.1rem;
+	color: #46465f;
+	font-size: 0.92rem;
+	line-height: 1.55;
+	text-align: center;
 }
 
 .statsContainer {
@@ -80,7 +97,7 @@
 .stats {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 0.85rem;
+	gap: 0.95rem;
 }
 
 .stats.row2 {
@@ -92,11 +109,10 @@
 }
 
 .stats h3 {
-	margin-bottom: 0.2rem;
+	margin-bottom: 0.25rem;
 	color: #30304d;
-	font-size: 0.78rem;
-	font-weight: 700;
-	letter-spacing: 0.04em;
+	font-size: 0.75rem;
+	font-weight: 800;
 	text-transform: uppercase;
 }
 
@@ -109,4 +125,113 @@
 
 .filled-green {
 	color: #176f42;
+}
+
+@media (min-width: 901px) {
+	.card {
+		padding: 1.5rem;
+	}
+
+	.card img {
+		margin-bottom: 1.3rem;
+	}
+
+	.name {
+		font-size: 1.5rem;
+	}
+
+	.description {
+		font-size: 0.95rem;
+	}
+
+	.statsContainer {
+		gap: 1.15rem;
+	}
+
+	.stats {
+		gap: 1rem;
+	}
+
+	.stats p {
+		font-size: 0.95rem;
+	}
+}
+
+@media (min-width: 901px) {
+	:global([data-layout="featured"]) .card {
+		display: grid;
+		grid-template-columns: minmax(20rem, 0.95fr) minmax(0, 1.05fr);
+		grid-template-areas:
+			"favorite origin"
+			"image identity"
+			"image stats";
+		align-items: start;
+		column-gap: 2rem;
+		row-gap: 0;
+		padding: 1.75rem;
+	}
+
+	:global([data-layout="featured"]) .card > svg {
+		grid-area: favorite;
+	}
+
+	:global([data-layout="featured"]) .origin {
+		grid-area: origin;
+		justify-self: end;
+		align-self: start;
+	}
+
+	:global([data-layout="featured"]) .card img {
+		grid-area: image;
+		aspect-ratio: 16 / 9;
+		margin: 1.2rem 0 0;
+	}
+
+	:global([data-layout="featured"]) .identity {
+		grid-area: identity;
+		align-items: flex-start;
+		padding-top: 1rem;
+	}
+
+	:global([data-layout="featured"]) .name {
+		font-size: 1.7rem;
+		text-align: left;
+	}
+
+	:global([data-layout="featured"]) .breedGroup {
+		justify-content: flex-start;
+	}
+
+	:global([data-layout="featured"]) .description {
+		margin-bottom: 1.35rem;
+		font-size: 1rem;
+		text-align: left;
+	}
+
+	:global([data-layout="featured"]) .statsContainer {
+		grid-area: stats;
+	}
+
+	:global([data-layout="featured"]) .statsContainer::before {
+		content: "";
+		width: 100%;
+		height: 1px;
+		margin-bottom: 0.1rem;
+		background: rgba(64, 64, 96, 0.12);
+	}
+
+	:global([data-layout="featured"]) .stats {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.1rem;
+	}
+
+	:global([data-layout="featured"]) .stats.row2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.card {
+		transition: none;
+	}
 }

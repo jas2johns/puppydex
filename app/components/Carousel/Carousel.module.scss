@@ -5,13 +5,19 @@
 .carousel {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1.75rem;
+	gap: 1.5rem;
 	width: 100%;
 }
 
 .carouselItem {
 	display: flex;
 	min-width: 0;
+}
+
+.singleResult .carouselItem {
+	grid-column: 1 / -1;
+	max-width: 1040px;
+	margin: 0 auto;
 }
 
 @media (max-width: 900px) {
@@ -25,5 +31,9 @@
 	.carousel {
 		grid-template-columns: 1fr;
 		gap: 1.25rem;
+	}
+
+	.singleResult .carouselItem {
+		max-width: none;
 	}
 }

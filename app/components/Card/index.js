@@ -77,20 +77,25 @@ export default function BreedCard(props) {
 				<div className={styles.origin}>{breed.origin}</div>
 			)}
 			<img src={breed.imageUrl} alt={`${breed.name} dog`} />
-			<h2 className={styles.name}>{breed.name}</h2>
-			<div className={styles.breedGroup}>
-				<span
-					style={{
-						backgroundColor: breedGroupColor,
-					}}
-				>
-					{breed.breed_group || "unknown"}
-				</span>
+			<div className={styles.identity}>
+				<h2 className={styles.name}>{breed.name}</h2>
+				<div className={styles.breedGroup}>
+					<span
+						style={{
+							backgroundColor: breedGroupColor,
+						}}
+					>
+						{breed.breed_group || "unknown"}
+					</span>
+				</div>
+				{breed.description && (
+					<p className={styles.description}>{breed.description}</p>
+				)}
 			</div>
 			<div className={styles.statsContainer}>
 				<div className={styles.stats}>
 					<div className={styles.bredFor}>
-						<h3>Bred For</h3>
+						<h3>Purpose</h3>
 						<p>{breed.bred_for || "-"}</p>
 					</div>
 					<div className={styles.temperament}>

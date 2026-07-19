@@ -14,6 +14,41 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Local Auth0 Setup
+
+This project uses `@auth0/nextjs-auth0` v3 and the App Router auth route at
+`/api/auth/[auth0]/route.js`.
+
+Create a local `.env.local` file from `.env.example` and fill in real values
+from an Auth0 Regular Web Application. Do not commit `.env.local`.
+
+Required local variables:
+
+```bash
+AUTH0_SECRET=
+AUTH0_BASE_URL=http://localhost:3000
+AUTH0_ISSUER_BASE_URL=
+AUTH0_CLIENT_ID=
+AUTH0_CLIENT_SECRET=
+```
+
+Generate `AUTH0_SECRET` locally with:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+Configure the Auth0 Application settings for the same local origin:
+
+```text
+Allowed Callback URLs: http://localhost:3000/api/auth/callback
+Allowed Logout URLs: http://localhost:3000/
+Allowed Web Origins: http://localhost:3000
+```
+
+If you run Next.js on a different port, update `AUTH0_BASE_URL` and the Auth0
+dashboard URLs to match that exact origin, then restart the dev server.
+
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.

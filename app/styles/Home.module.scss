@@ -39,9 +39,149 @@
 
 .resultsContainer {
 	flex: 1;
-	width: min(100% - 3rem, 1160px);
+	width: min(100% - 3rem, 1120px);
 	margin: 0 auto;
-	padding: 2rem 0;
+	padding: 1.6rem 0 2.5rem;
+}
+
+.featuredBreeds,
+.browseGroups,
+.breedExplorer {
+	margin-bottom: 2.15rem;
+}
+
+.sectionHeader {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	margin-bottom: 0.95rem;
+}
+
+.sectionHeader h1 {
+	margin: 0;
+	color: #20203a;
+	font-size: clamp(1.25rem, 2vw, 1.55rem);
+	font-weight: 800;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.sectionHeader::before {
+	content: "";
+	width: 0.55rem;
+	height: 1.25rem;
+	border-radius: 999px;
+	background: #dc3038;
+	box-shadow: inset 0 -3px 0 rgba(32, 32, 58, 0.18);
+}
+
+.featuredGrid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.1rem;
+}
+
+.featuredCard {
+	display: grid;
+	grid-template-columns: 6.25rem minmax(0, 1fr);
+	align-items: center;
+	gap: 1.05rem;
+	width: 100%;
+	min-height: 7.1rem;
+	padding: 0.75rem;
+	border: 1px solid rgba(64, 64, 96, 0.14);
+	border-radius: 0.9rem;
+	background: #ffffff;
+	box-shadow: 0 5px 14px rgba(33, 33, 50, 0.08);
+	color: #20203a;
+	cursor: pointer;
+	text-align: left;
+	transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.featuredCard:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 8px 18px rgba(33, 33, 50, 0.11);
+}
+
+.featuredCard:focus-visible {
+	outline: 3px solid #17204c;
+	outline-offset: 3px;
+}
+
+.featuredCard img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	object-position: center 40%;
+	border-radius: 0.7rem;
+}
+
+.featuredCard span {
+	font-size: 1rem;
+	font-weight: 800;
+	line-height: 1.25;
+}
+
+@media (min-width: 901px) {
+	.featuredCard {
+		grid-template-columns: 1fr;
+		align-content: start;
+		gap: 0.85rem;
+		min-height: 18.5rem;
+		padding: 0.85rem;
+		text-align: center;
+	}
+
+	.featuredCard img {
+		aspect-ratio: 5 / 4;
+	}
+}
+
+.groupList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem 0.8rem;
+}
+
+.groupButton {
+	min-height: 44px;
+	padding: 0.65rem 1rem;
+	border: 2px solid #20203a;
+	border-radius: 999px;
+	background: #ffffff;
+	box-shadow: 0 4px 0 #20203a;
+	color: #20203a;
+	cursor: pointer;
+	font-size: 0.95rem;
+	font-weight: 800;
+	line-height: 1;
+	transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.groupButton:hover {
+	transform: translateY(1px);
+	box-shadow: 0 3px 0 #20203a;
+}
+
+.groupButton:focus-visible {
+	outline: 3px solid #17204c;
+	outline-offset: 3px;
+}
+
+.breedExplorer {
+	padding-top: 0.1rem;
+}
+
+.breedExplorer .sectionHeader {
+	margin-bottom: 1.1rem;
+}
+
+@media (max-width: 900px) {
+	.featuredGrid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
 }
 
 @media (max-width: 700px) {
@@ -64,7 +204,52 @@
 
 	.resultsContainer {
 		width: min(100% - 2rem, 1160px);
-		padding-top: 1.25rem;
+		padding-top: 1.2rem;
+	}
+
+	.featuredBreeds,
+	.browseGroups,
+	.breedExplorer {
+		margin-bottom: 1.55rem;
+	}
+
+	.sectionHeader {
+		margin-bottom: 0.85rem;
+	}
+
+	.sectionHeader h1 {
+		font-size: 1.25rem;
+	}
+
+	.sectionHeader::before {
+		height: 1.1rem;
+	}
+
+	.featuredGrid {
+		grid-template-columns: 1fr;
+		gap: 0.85rem;
+	}
+
+	.featuredCard {
+		grid-template-columns: 5.6rem minmax(0, 1fr);
+		min-height: 6.25rem;
+		padding: 0.7rem;
+	}
+
+	.groupList {
+		gap: 0.65rem;
+	}
+
+	.groupButton {
+		padding: 0.6rem 0.85rem;
+		font-size: 0.9rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.featuredCard,
+	.groupButton {
+		transition: none;
 	}
 }
 .page {
