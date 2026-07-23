@@ -44,6 +44,42 @@
 	line-height: 1.5;
 }
 
+.accountMenu {
+	display: grid;
+	gap: 0.65rem;
+	width: 100%;
+}
+
+.userIdentity {
+	padding: 0.6rem 0.75rem;
+	border: 1px solid rgba(64, 64, 96, 0.12);
+	border-radius: 0.75rem;
+	background: #f0f0ef;
+	color: #20203a;
+	font-weight: 800;
+	overflow-wrap: anywhere;
+}
+
+.menuItem {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	padding: 0.65rem 1rem;
+	border: 2px solid #20203a;
+	border-radius: 999px;
+	background: #fff;
+	box-shadow: 0 4px 0 #20203a;
+	color: #20203a;
+	font-weight: 800;
+	transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.menuItem:hover {
+	transform: translateY(1px);
+	box-shadow: 0 3px 0 #20203a;
+}
+
 .signInLink {
 	display: inline-flex;
 	align-items: center;
@@ -61,6 +97,7 @@
 	background: #bd202a;
 }
 
+.menuItem:focus-visible,
 .signInLink:focus-visible,
 .toggle:focus-visible {
 	outline: 3px solid #17204c;
@@ -118,6 +155,7 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.panel,
+	.menuItem,
 	.toggle,
 	.chevron {
 		transition: none;

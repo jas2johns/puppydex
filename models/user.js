@@ -16,6 +16,7 @@ const BreedSchema = new mongoose.Schema({
 	life_span: String,
 	temperament: String,
 	origin: String,
+	description: String,
 	reference_image_id: String,
 	image: {
 		id: String,
@@ -27,6 +28,7 @@ const BreedSchema = new mongoose.Schema({
 });
 
 const UserSchema = new mongoose.Schema({
+	auth0Id: String,
 	emailAddress: String,
 	favorites: [BreedSchema],
 });

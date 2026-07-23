@@ -14,7 +14,7 @@ const PostLogin = async () => {
 
 			// get the user from the db
 			const existingUser = await User.find({
-				emailAddress: user.email,
+				$or: [{ auth0Id: user.sub }, { emailAddress: user.email }],
 			});
 
 			console.log("user result", existingUser);
@@ -22,6 +22,7 @@ const PostLogin = async () => {
 			// if user exists, direct to index
 			if (existingUser.length === 0) {
 				const userToAdd = new User({
+					auth0Id: user.sub,
 					emailAddress: user.email,
 					favorites: [],
 				});
@@ -29,6 +30,10 @@ const PostLogin = async () => {
 				await userToAdd.save();
 
 				console.log("saved user");
+			} else if (!existingUser[0].auth0Id) {
+				existingUser[0].auth0Id = user.sub;
+				existingUser[0].emailAddress = user.email;
+				await existingUser[0].save();
 			}
 
 			redirect("/");

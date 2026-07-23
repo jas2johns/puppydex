@@ -1,16 +1,115 @@
-.favorites-container {
+.page {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: 2rem;
+	min-height: 100vh;
+}
+
+.container {
+	flex: 1;
+	width: min(100% - 2rem, 1120px);
+	margin: 0 auto;
+	padding: 1.6rem 0 2.5rem;
+}
+
+.section {
 	width: 100%;
 }
 
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) {
-	.favorites-container {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		place-items: center;
+.sectionHeader {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	margin-bottom: 1rem;
+}
+
+.sectionHeader::before {
+	content: "";
+	width: 0.55rem;
+	height: 1.25rem;
+	border-radius: 999px;
+	background: #dc3038;
+	box-shadow: inset 0 -3px 0 rgba(32, 32, 58, 0.18);
+}
+
+.sectionHeader h1 {
+	margin: 0;
+	color: #20203a;
+	font-size: clamp(1.25rem, 2vw, 1.55rem);
+	font-weight: 800;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.favoritesContainer {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.5rem;
+	width: 100%;
+}
+
+.favoriteItem {
+	display: flex;
+	min-width: 0;
+}
+
+.status,
+.emptyState {
+	width: min(100%, 520px);
+	margin: 0 auto;
+	padding: 1.25rem 1.5rem;
+	border: 1px solid rgba(64, 64, 96, 0.14);
+	border-radius: 0.9rem;
+	background: #fff;
+	box-shadow: 0 6px 14px rgba(33, 33, 50, 0.08);
+	color: #30304d;
+	text-align: center;
+}
+
+.emptyState h2 {
+	margin: 0 0 0.45rem;
+	color: #20203a;
+	font-size: 1.2rem;
+}
+
+.emptyState p {
+	margin: 0;
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+.emptyState a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	margin-top: 0.9rem;
+	padding: 0.65rem 1rem;
+	border: 2px solid #20203a;
+	border-radius: 999px;
+	background: #fff;
+	box-shadow: 0 4px 0 #20203a;
+	color: #20203a;
+	font-weight: 800;
+}
+
+.emptyState a:focus-visible {
+	outline: 3px solid #17204c;
+	outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+	.favoritesContainer {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 620px) {
+	.container {
+		padding-top: 1.2rem;
+	}
+
+	.favoritesContainer {
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
 	}
 }

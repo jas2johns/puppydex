@@ -30,6 +30,7 @@ AUTH0_BASE_URL=http://localhost:3000
 AUTH0_ISSUER_BASE_URL=
 AUTH0_CLIENT_ID=
 AUTH0_CLIENT_SECRET=
+MONGODB_URI=
 ```
 
 Generate `AUTH0_SECRET` locally with:
@@ -48,6 +49,9 @@ Allowed Web Origins: http://localhost:3000
 
 If you run Next.js on a different port, update `AUTH0_BASE_URL` and the Auth0
 dashboard URLs to match that exact origin, then restart the dev server.
+
+`MONGODB_URI` should be a MongoDB connection string for the database that stores
+PuppyDex users and favorites. Keep it in `.env.local`; do not commit it.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 

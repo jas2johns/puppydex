@@ -12,19 +12,58 @@
 	transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
-.card > svg {
+.favoriteButton {
 	align-self: flex-start;
-	width: 44px;
-	height: 44px;
-	padding: 10px;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	min-height: 44px;
+	padding: 0.45rem 0.65rem;
 	margin: -0.5rem 0 -2.25rem -0.5rem;
+	border: 2px solid transparent;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.92);
+	color: #176f42;
+	font: inherit;
+	font-size: 0.75rem;
+	font-weight: 800;
 	cursor: pointer;
-	border-radius: 50%;
 }
 
-.card > svg:focus-visible {
+.favoriteButton svg {
+	width: 24px;
+	height: 24px;
+}
+
+.favoriteButtonActive {
+	border-color: #176f42;
+	background: #e8f6ee;
+}
+
+.favoriteButton:disabled {
+	cursor: progress;
+	opacity: 0.68;
+}
+
+.favoriteButton:focus-visible {
 	outline: 3px solid #17204c;
 	outline-offset: 2px;
+}
+
+.favoriteMessage {
+	margin: 0.25rem 0 0.4rem;
+	padding: 0.5rem 0.65rem;
+	border-radius: 0.7rem;
+	background: rgba(255, 255, 255, 0.95);
+	color: #30304d;
+	font-size: 0.8rem;
+	font-weight: 700;
+}
+
+.favoriteMessage a {
+	color: #dc3038;
+	text-decoration: underline;
+	text-underline-offset: 2px;
 }
 
 .card img {
@@ -171,7 +210,7 @@
 		padding: 1.75rem;
 	}
 
-	:global([data-layout="featured"]) .card > svg {
+	:global([data-layout="featured"]) .favoriteButton {
 		grid-area: favorite;
 	}
 
